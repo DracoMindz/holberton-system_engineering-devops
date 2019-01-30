@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -lad/, ., .., [:digit:], [:alpha:],\n
+ls -lad/, ., .., [:digit:], [:alpha:],
