@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -lad -RC
+ls -lad -RC [[:digit:]] [[:alpha:]]
