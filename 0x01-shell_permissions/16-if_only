@@ -1,2 +1,3 @@
 #!/bin/bash
-chown [guillaume:] betty: hello
+Find . guillaume -exec chown betty hello
+
