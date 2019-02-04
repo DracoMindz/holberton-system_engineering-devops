@@ -1,2 +1,2 @@
 #!/bin/bash
-cat env set | declare -f
+set
