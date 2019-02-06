@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $((F#($DECIMAL)))
+printf (%x\n) 
