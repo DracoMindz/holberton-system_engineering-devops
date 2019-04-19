@@ -1,9 +1,9 @@
 .TH "man" 2 "01 May 2015"  "0.32" "holberton man page"
 .SH NAME
-holberton \- become a full-stack software engineer
+holberton \- become a full-stack software engineer.
 .SH SYNOPSIS
 .B holberton
-[\fISTUDENT\fR]
+[\f STUDENT\fR]
 .SH DESCRIPTION
 .B Holberton School
 is a project-based alternative to college for the next generation of software engineers.
