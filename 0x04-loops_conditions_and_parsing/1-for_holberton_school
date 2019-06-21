@@ -1,2 +1,5 @@
 #!/usr/bin/env bash
-awk '{for (i = 1; i <= 10; i++) print $Holberton School}' file
+for i in {0..9}
+do
+    echo "Holberton School"
+done
