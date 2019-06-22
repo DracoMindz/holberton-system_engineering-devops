@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Print using while at 9 and 4 print different strings
+
+i = 1
+while [ $i -lt 10]
+do
+    echo "Holberton School"
+    (( i++ ))
+    if [ $i -eq 9 ]
+    then
+        echo "Holberton School"
+        echo "Hi"
+    fi
+done

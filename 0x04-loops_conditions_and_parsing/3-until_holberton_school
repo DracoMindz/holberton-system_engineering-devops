@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# until loop to print Holberton School
+
+i = 0
+until [ $i -eq 9 ]
+do
+    echo "Holberton School"
+done
