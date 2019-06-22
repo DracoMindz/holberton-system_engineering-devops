@@ -10,7 +10,7 @@ do
     echo "Hour: $h"
     while [ $h -lt 13 ] && [ $min -lt 60 ]
     do
-        echo -n "$min" $'\n'
+        echo "$min"
         : $(( min++ ))
     done
     min=1
