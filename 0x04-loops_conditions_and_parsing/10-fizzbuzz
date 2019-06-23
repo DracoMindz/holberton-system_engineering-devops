@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Print Fizz Buzz: factor of 3 is Fizz, factor of 5 is Buzz
+
+for ((a=1;a<=100;a++)); do
+    if ! ((a%15)); then  #Check if multiple of 5 and 3
+        echo FizzBuzz
+    elif ! ((a%3)); then  #check if multiple of 3
+        echo Fizz
+    elif ! ((a%5)); then  #check if multiple of 5
+        echo Buzz
+    else
+        echo $a  #print numbers
+    fi;
+done
