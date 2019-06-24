@@ -6,8 +6,8 @@ file="holbertonschool" #set varible equal to file name
 if [ -e "$file" ]       #check if file exists
 then
 	echo "$file file exists."
-else
-    echo "$file file does not exist."
+    else
+        echo "$file file does not exist."
 fi
 if [ -s "$file" ]       #check if file is empty 
 then
@@ -15,9 +15,15 @@ then
 else
     echo "$file is empty"
 fi
-if [ -f "$file" ]       #check if file is a regular file
+if [ -d "$file" ]
 then
+    echo "$file file exists and is director"
+else
+    echo " "
+fi
+if [ -f "$file" ]       #check if file is a regular file
+then 
     echo "$file is a regular file"
 else
-    echo
+    echo " "
 fi
