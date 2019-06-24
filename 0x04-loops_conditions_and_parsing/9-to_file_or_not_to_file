@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 # Bash script that give info about a file
-# Uses if -else statements
 
-file="holbertonschool" #set varible equal to file name
-if [ -e "$file" ]       #check if file exists
+file="holbertonschool" 
+if [ -e "$file" ]
 then
 	echo "$file file exists."
-    if [ -s "$file" ]       #check if file is empty 
+    if [ -s "$file" ] 
     then
         echo "$file file is not empty"
     else
         echo "$file file is empty"
 fi
-    if [ -f "$file" ]       #check if file is a regular file
+    if [ -f "$file" ]
     then 
         echo "$file is a regular file"
 fi
