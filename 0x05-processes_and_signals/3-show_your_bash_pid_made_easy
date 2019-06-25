@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Bash script that displays PID, process name, cotain word bash
+
+pgrep -l bash
