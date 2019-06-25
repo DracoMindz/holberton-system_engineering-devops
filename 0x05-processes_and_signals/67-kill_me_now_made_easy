@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#script kills infinite loop 
+
+pgrep -f '7-highlander'
+while [ "$1" ]; do break; done
