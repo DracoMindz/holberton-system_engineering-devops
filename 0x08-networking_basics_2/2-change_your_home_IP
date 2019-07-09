@@ -1,2 +1,6 @@
 #!/usr/bin/env bash
+cp /etc/hosts ~/hosts.new
+sed -i s/^172.*$// ~/hosts.new
+sed -i s/^158.*$// ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
 
