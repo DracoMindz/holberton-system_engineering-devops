@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-netstat -nap | grep -i 'listen'
+netstat -p -l
