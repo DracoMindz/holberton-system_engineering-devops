@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #Bash script that configures an Ubuntu server with the below requirements.
 
-echo -e "127.0.02\tlocalhost"> ~/hosts.new
-echo -e "8.8.8.8\tfacebook.com">> ~/hosts.new
-cat /etc/hosts >> ~/hosts.new
-cp -f ~/hosts.new /etc/hosts
+echo -e "127.0.02\tlocalhost"> /tmp/hosts.new
+echo -e "8.8.8.8\tfacebook.com">> /tmp/hosts.new
+cat /etc/hosts >> /tmp/hosts.new
+cp -f /tmp/hosts.new /etc/hosts
