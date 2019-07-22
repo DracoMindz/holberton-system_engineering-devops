@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
 # Write a Bash script that pings an IP address passed as an argument.
-IP="$#"
-fping -c1 -t300 $IP 2>/dev/null 1>/dev/null
-i=0
-if [ "$#" = 0]
+if (( "$#<1"))
 then
-	while [$i -lt 6]
-	do
-		fping -c1 -t300 $IP 2>/dev/null 1>/dev/null
-		(( i++ ))
-else
-	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
-	
+    echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+    exit
+fi
+ping -c5 "$1"

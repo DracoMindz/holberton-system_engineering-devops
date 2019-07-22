@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-netstat -nap | grep -i 'listen'
+#Bash script that displays listening ports:
+netstat -p -l
