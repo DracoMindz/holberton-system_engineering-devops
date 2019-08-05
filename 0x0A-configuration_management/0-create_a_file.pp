@@ -1,9 +1,9 @@
-#Creates a file
+# Creates a file
 file { '/tmp/holberton':
   ensure  => file,
   path    => '/tmp/holberton',
   owner   => 'www-data',
   group   => 'www-data',
   mode    => '0744',
-  content => 'I Love Puppet',
+  content => 'I Love Puppet'
 }
