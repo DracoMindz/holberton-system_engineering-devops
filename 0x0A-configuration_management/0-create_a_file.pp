@@ -1,5 +1,5 @@
 #Creates a file
-file {'config-file':
+file {'/tmp/holberton':
   ensure  => file,
   path    => '/tmp/holberton',
   owner   => 'www-data',
