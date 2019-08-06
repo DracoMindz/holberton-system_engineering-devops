@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-ssh-keygen -t holberton -b 4096 -N betty
+ssh-keygen -t holberton -b 4096 
