@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-ssh /user/ubuntu -i ~/.ssh/holberton
+# log in with ubuntu user and password from  file
+ssh ubuntu@35.237.165.174 -i ~/.ssh/holberton
