@@ -1,7 +1,14 @@
 # configuration file to connect to a server without typing password
-file_line{'disable password login':
-    ensure => 'absent',
-    line   => 'PasswordAuthentication yes',
+file_line{'disable_password_login':
     path   => '/etc/ssh/sshd_config',
-    key    => '~/.ssh/holberton'
+    line   => 'PasswordAuthentication yes',
+    ensure => 'absent'
+    match  => 'PasswordAuthentication yes',
+}
+
+file_line{'use new private key':
+    path   => '~/.ssh/'
+    line   => 'Identity'
+    ensure => '~/.ssh/holberton'
+    match  => 'Identity'
 }
