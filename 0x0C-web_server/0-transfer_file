@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+FILEPATH= $FILEPATH
+USER= $USER
+IPADDRESS= $IP
+PASSWD= $PASSWD
+
+curl scp $FILEPATH $IP $USER $PASSWD ~/.

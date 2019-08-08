@@ -9,7 +9,7 @@ Tips: to test your answer Bash script, feel free to reproduce the checker enviro
 
 start an ubuntu:16.04 Docker container
 run your script on it
-see how it behaves
+see how  behaves
 Check out the Docker concept page for more info about how to manipulate containers.
 
 ### Resources
