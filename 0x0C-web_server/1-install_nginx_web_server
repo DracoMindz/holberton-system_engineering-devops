@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Install ngix on web server
-apt-get update
+apt-get -y update
 apt-get -y install nginx
 echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
 service nginx start
