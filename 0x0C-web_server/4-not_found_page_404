@@ -6,6 +6,6 @@ echo 'HolbertonSchool' | sudo tee /usr/share/nginx/html/index.html
 sudo sed -i "s,sever_name_;,\n\tlocation/redirect_me {\n\treturn 301 https://https://www.youtube.com/watch?v=WZ9W0nIonnM\n\t}";
 echo "Ceci n'est pas une page" > /var/www/html/index.html
 error_404="\\\terror_page 404 /404.html; \n\tlocation = 404.html {\n\t\troot /var/www/html/index.html;\n\t\tinternal;\n\t}"
-sudo sed -i "$error_404" /etc/nginx/sites-available/default
+sudo sed -i "30i $error_404" /etc/nginx/sites-available/default
 service nginx reload
 service nginx restart
