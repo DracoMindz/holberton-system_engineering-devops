@@ -12,7 +12,7 @@ file_line { 'snoopy':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
   after  => 'server_name _',
-  line   => 'rewrite ^/redirect_me $https://www.youtube.com/watch?v=WZ9W0nIonnM\n\t}";permanent;',
+  line   => 'return ^/redirect_me $https://www.youtube.com/watch?v=WZ9W0nIonnM\n\t}";permanent;',
 }
 
 
