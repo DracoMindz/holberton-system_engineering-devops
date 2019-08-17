@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Install ans configure HAproxy on lb-01 server.
+sudo apt-get -y install software-properties-common
+sudo add-apt-repository -y ppa:vbernat/haproxy-1.5
+sudo apt-get -y update
+sudo apt-get -y install haproxy=1.5.\*
+cat > /etc/haproxy/haproxy.cfg <<EOF
+frontend mortonium.tech
+         bind *:80
+         default_backend morton_back
+
+backend morton_back
+        balance roundrobin
+        mode http
+        server web-01 35.237.127.124
+        server web-02 34.74.215.227
+service haproxy restart

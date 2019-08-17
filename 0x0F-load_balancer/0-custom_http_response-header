@@ -2,5 +2,5 @@
 # Configuring a server with specification response header
 apt-get -y update
 apt-get -y install nginx
-sed -i "add_header X-Served-By \$hostname;\n" /etc/nginx/sites-enabled/default
+sed -i "36i add_header X-Served-By \$hostname;\n" /etc/nginx/sites-enabled/default
 service nginx restart
