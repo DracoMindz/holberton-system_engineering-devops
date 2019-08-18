@@ -13,7 +13,7 @@ frontend mortonium.tech
 backend morton_back
         balance roundrobin
         mode http
-        server web-01 35.237.127.124
-        server web-02 34.74.215.227
+        server 704-web-01 35.237.127.124
+        server 704-web-02 34.74.215.227
 
 service haproxy restart
