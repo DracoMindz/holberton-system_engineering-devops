@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# configure ngnix server to listen to port 80 for all active IPv4 IPs
+
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
