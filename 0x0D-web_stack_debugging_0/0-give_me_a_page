@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# dubug server
+apt-get update
+sudo service apache2 restart
