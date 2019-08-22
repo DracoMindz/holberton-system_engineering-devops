@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Bash script that will display information about subdomains
+domain=$1
+subdomain=$2
 
 
 domain_config() {
@@ -9,20 +11,28 @@ domain_config() {
 
 	if [ $# -eq 2 ]; then
 
-	    domain=$1
-	    subdomain=$2
 	    record_type=$(dig "$2.$1." | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $4 }')
    	    dest=$(dig "$2.$1." | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $5 }')
    	    echo "The subdomain $subdomain is a $record_type and points to $dest"
 
 	else
-	    array=( "www" "lb-01" "wed-01" "web-02" )
-	    for n in "${array[@]}" ; do
-		record=$(dig array[n]."$domain" | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $4 }')
-		destination=$(dig array[n]."$domain" | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $5 }')
-    		echo "The subdomain ${array[n]} is a $record record and points to $destination" 
-    	    done
-	fi
+
+	    www_recType=$(dig www."$domain" | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $4 }')
+	    www_dest=$(dig www."$domain" | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $5 }')
+    	    echo "The subdomain www is a ${www_recType} record and points to ${www_dest}"
+
+	    lb_01_recType=$(dig lb-01."$domain" | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $4 }')
+            lb_01_dest=$(dig lb-01."$domain" | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $5 }')
+            echo "The subdomain lb-01 is a ${lb_01_recType} record and points to ${lb_01_dest}"
+
+	    web_01_recType=$(dig web-01."$domain" | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $4 }')
+            web_01_dest=$(dig web-01."$domain" | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $5 }')
+            echo "The subdomain web-01 is a ${web_01_recType} record and points to ${web_01_dest}"
+
+	    web_02_recType=$(dig web-02."$domain" | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $4 }')
+            web_02_dest=$(dig web-02."$domain" | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $5 }')
+            echo "The subdomain web-02 is a ${web_02_recType} record and points to ${web_02_dest}"
+	 fi
 }
 
 if [ "$#" == 2 ]; then
