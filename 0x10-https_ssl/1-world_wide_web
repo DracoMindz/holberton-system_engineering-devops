@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-#Bash script that will display information about subdomains
+# Bash script that will display information about subdomains
 
 
-domain_config(){
+domain_config() {
 	#domain attributes
 
 
