@@ -6,23 +6,22 @@ domain_config() {
 	#domain attributes
 
 
+
 	if [ $# -eq 2 ]; then
 
-	     domain=$1
-	     subdomain=$2
-	     array=( "www" "lb-01" "wed-01" "web-02" )
-
-   	     record_type=$(dig "$2.$1." | grep -A1 'ANSWER SECTION:' | awk -F" " '{ print $4 }')
-   	     dest=$(dig "$2.$1." | grep -A1 'ANSWER SECTION:' | awk -F" " '{ print $5 }')
-   	     echo "The subdomain $subdomain is a $record_type and points to $dest"
+	    domain=$1
+	    subdomain=$2
+	    record_type=$(dig "$2.$1." | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $4 }')
+   	    dest=$(dig "$2.$1." | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $5 }')
+   	    echo "The subdomain $subdomain is a $record_type and points to $dest"
 
 	else
-		for ((n=0; n<4; n++));
-    		do
-			record=$(dig array[n]."$domain" | grep -A1 'ANSWER SECTION:' | awk -F" " '{ print $4 }')
-			destination=$(dig array[n]."$domain" | grep -A1 'ANSWER SECTION:' | awk -F" " '{ print $5 }')
-    			echo "The subdomain ${array[n]} is a $record record and points to $destination" 
-    		done
+	    array=( "www" "lb-01" "wed-01" "web-02" )
+	    for n in "${array[@]}" ; do
+		record=$(dig array[n]."$domain" | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $4 }')
+		destination=$(dig array[n]."$domain" | grep -A1 'ANSWER SECTION:' | awk -F " " '{ print $5 }')
+    		echo "The subdomain ${array[n]} is a $record record and points to $destination" 
+    	    done
 	fi
 }
 
