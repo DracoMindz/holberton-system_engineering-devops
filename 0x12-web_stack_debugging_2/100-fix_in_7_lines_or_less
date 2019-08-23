@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 #script to run another user as root
-pkill apache2
-chmod 755 /etc/nginx/nginx.conf
-sed -i '/#user/c\user nginx;' /etc/nginx/nginx.conf
-sed -i -e 's/80/8080/g' /etc/nginx/sites-available/default
-chown nginx:nginx /etc/nginx/nginx.conf
+sudo chmod 755 /etc/nginx/nginx.conf
+pkill -f apache2
+sudo chown nginx:nginx /etc/nginx/nginx.conf
+sudo sed -i -e 's/80/8080/g' /etc/nginx/sites-available/default
 sudo -u nginx service nginx restart
