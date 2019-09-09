@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# redirect new server
+# redirect to new server
 sudo apt-get -y update
 sudo apt-get -y install nginx
 echo 'HolbertonSchool' | sudo tee /usr/share/nginx/html/index.html
