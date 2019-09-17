@@ -1,11 +1,11 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/python3
 """ Python script: uses REST API, for employee, return info about """
 """ employee TODO list progress """
 
 import requests
 import sys
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     """ employee information requests """
     employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'.
