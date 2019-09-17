@@ -24,7 +24,8 @@ if __name__ == "__main__":
     jsonDataDict = {user.get('id'): [{"task": task.get('title'),
                                      "completed": task.get('completed'),
                                      "username": task.get('username')}
-                                     for task in list_of_tasks]}
+                                     for task in list_of_tasks]
+                    for user in employeeList}
 
     # Insert json data row
     with open('todo_all_employees.json', 'w') as mfile:
