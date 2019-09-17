@@ -10,7 +10,7 @@ if __name__ == "__main__":
     import sys
 
     # User ID
-    user_id = sys.argv[1]
+    userId = sys.argv[1]
 
     # Employee information requests
     employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'.
@@ -23,11 +23,11 @@ if __name__ == "__main__":
     taskList = tasks
 
     # Export json formatted data in json file
-    jsonDataDict = {user_id: [{"task": task.get('title'),
-                              "completed": task.get('completed'),
-                              "username": task.get('username')}
-                              for task in taskList]}
+    jsonDataDict = {userId: [{"task": task.get('title'),
+                             "completed": task.get('completed'),
+                             "username": task.get('username')}
+                             for task in taskList]}
 
     # Insert json data row
-    with open('{}.json'.format(user_id), 'w') as mfile:
+    with open('{}.json'.format(userId), 'w') as mfile:
         json.dump(jsonDataDict, mfile)
