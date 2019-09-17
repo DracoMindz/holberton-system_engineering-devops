@@ -7,23 +7,21 @@ import sys
 
 if __name__ == '__main__':
 
-    """ Url information """
-    url = 'https://jsonplaceholder.typicode.com'
-    req = requests.get(url)
-
     """ employee information requests """
-    employee = requests.get(https: // jsonplaceholder.
-                            typicode.com/users?sys.argv[1]).json()
+    employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(sys.argv[1])).json()
     employee_name = employee.get('name')
 
     """ todo information requests """
-    tasks = requests.get(https: // jsonplaceholder.
-                         typicode.com/todos?sys.argv[1]).json()
+    tasks = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'.format(sys.argv[1])).json()
     tot_tasks = len(tasks)
-    com_tasks = tasks.get('completed')
+    com_tasks = []
+    for task in tasks:
+        if task.get('completed') is True:
+            com_tasks.append(task)
+    tcom_tasks = len(com_tasks)
 
-    while req is not None:
-
-        print('Employee {} is done with tasks {}/{}:'.
-              format(employee_name, com_tasks / tot_tasks))
-        print('\t{}" "'.format(com_tasks.get('title')))
+    """ Print the employee task data """
+    print('Employee {} is done with tasks ({}/{}):'.
+              format(employee_name, tcom_tasks, tot_tasks))
+    for task in com_tasks:
+        print('\t {}'.format(task.get('title')))
