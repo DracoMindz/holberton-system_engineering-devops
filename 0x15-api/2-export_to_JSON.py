@@ -1,31 +1,33 @@
 #!/usr/bin/python3
-""" 
-Python script: uses REST API, for employee, return info about
-employee todo list progress 
+"""
+Python script: exports data in JSON format
 """
 
 
 if __name__ == "__main__":
+    import json
     import requests
     import sys
-  
+
+    # User ID
+    user_id = sys.argv[1]
+
     # Employee information requests
     employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'.
                             format(sys.argv[1])).json()
-    employee_name = employee.get('name')
+    username = employee.get('username')
 
     # Todo information requests
     tasks = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
                          .format(sys.argv[1])).json()
-    tot_tasks = len(tasks)
-    com_tasks = []
-    for task in tasks:
-        if task.get('completed') is True:
-            com_tasks.append(task)
-    tcom_tasks = len(com_tasks)
+    taskList = tasks
 
-    # Print the employee task data
-    print('Employee {} is done with tasks({}/{}):'.
-          format(employee_name, tcom_tasks, tot_tasks))
-    for task in com_tasks:
-        print('\t {}'.format(task.get('title')))
+    # Export json formatted data in json file
+    jsonDataDict = {user_id: [{"task": task.get('title'),
+                              "completed": task.get('completed'),
+                              "username": task.get('username')}
+                              for task in taskList]}
+
+    # Insert json data row
+    with open('{}.json'.format(user_id), 'w') as mfile:
+        json.dump(jsonDataDict, mfile)
