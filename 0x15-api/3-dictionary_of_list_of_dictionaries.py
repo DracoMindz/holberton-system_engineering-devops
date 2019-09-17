@@ -10,8 +10,8 @@ if __name__ == "__main__":
     url = 'https://jsonplaceholder.typicode.com'
 
     # Employee information requests
-    employee = requests.get('{}/users'.format(url)).json()
-    employeeList = employee
+    employee = requests.get('{}/users'.format(url))
+    employeeList = employee.json()
 
     # Todo information requests
     list_of_tasks = []
@@ -22,8 +22,8 @@ if __name__ == "__main__":
 
     # Export json formatted data in json file
     jsonDataDict = {user.get('id'): [{"task": task.get('title'),
-                                     "completed": task.get('completed'),
-                                     "username": task.get('username')}
+                                     "username": task.get('username'),
+                                     "completed": task.get('completed')}
                                      for task in list_of_tasks]
                     for user in employeeList}
 
