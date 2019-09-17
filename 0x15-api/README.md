@@ -16,8 +16,8 @@ Pythonic Variable name style?
 Pythonic Function name style?
 Pythonic Constant name style?
 
-##Tasks
- 
+## Tasks
+
 **0. Gather data from an API**
 Write a Python script: use this REST API, for a given employee ID, return information about his/her TODO list progress.
 
@@ -29,13 +29,5 @@ Using task #0: extend your Python script to export data in the JSON format.
 
 **3. Dictionary of list of dictionaries mandatory**
 Using task #0: extend your Python script to export data in the JSON format.
-
-
-
-
-
-
-
-
 
 Holbertonschool.com
