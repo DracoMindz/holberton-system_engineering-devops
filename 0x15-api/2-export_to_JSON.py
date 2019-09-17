@@ -29,5 +29,5 @@ if __name__ == "__main__":
                               for task in taskList]}
 
     # Insert json data row
-    with open('{}.json'.format(user_id), 'w') as mfile:
+    with open('{}.json'.format(sys.argv[1]), 'w') as mfile:
         json.dump(jsonDataDict, mfile)
