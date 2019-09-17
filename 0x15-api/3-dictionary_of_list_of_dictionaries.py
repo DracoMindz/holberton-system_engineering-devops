@@ -10,20 +10,21 @@ if __name__ == "__main__":
     url = 'https://jsonplaceholder.typicode.com'
 
     # Employee information requests
-    employee = requests.get('{}/users'.format(url).json()
-    employee_list = employee
+    employee = requests.get('{}/users'.format(url)).json()
+    employeeList = employee
 
     # Todo information requests
-    for user in employee_list:
-        tasks = requests.get('{}/todos?userId={}'.
-                             format(url, user.get('id'))).json()
-        taskList += tasks
+    list_of_tasks = []
+    for user in employeeList:
+        todoList = requests.get('{}/todos?userId={}'.
+                                format(url, user.get('id'))).json()
+        list_of_tasks += todoList
 
     # Export json formatted data in json file
     jsonDataDict = {user.get('id'): [{"task": task.get('title'),
                                      "completed": task.get('completed'),
                                      "username": task.get('username')}
-                                     for task in taskList]}
+                                     for task in list_of_tasks]}
 
     # Insert json data row
     with open('todo_all_employees.json', 'w') as mfile:
