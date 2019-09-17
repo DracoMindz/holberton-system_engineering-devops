@@ -21,12 +21,16 @@ if __name__ == "__main__":
     # Todo information requests
     tasks = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
                          .format(sys.argv[1])).json()
-    task_list = tasks.json()
+    taskList = tasks
 
     # Export data in the CSV format
-    data_row = ([user_id, username, task.get('completed'), task.get('title')]
-                for task in task_list]
+    data_row = [[user_id,
+                username,
+                task.get('completed'),
+                task.get('title')]
+                for task in taskList]
 
     # Insert csv data row
     with open('{}.csv'.format(user_id), 'w') as m:
-              m.writerows(data_row)
+        writeFile = csv.writer(m, quoting=csv.QUOTE_ALL)
+        writeFile.writerows(data_row)
