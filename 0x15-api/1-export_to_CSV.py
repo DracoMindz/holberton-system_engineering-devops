@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+"""
+Python script: uses REST API, for employee, return info about
+employee todo list progress
+"""
+
+
+if __name__ == "__main__":
+    import csv
+    import requests
+    import sys
+
+    # User ID
+    user_id = sys.argv[1]
+
+    # Employee information requests
+    employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'.
+                            format(sys.argv[1])).json()
+    username = employee.get('username')
+
+    # Todo information requests
+    tasks = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
+                         .format(sys.argv[1])).json()
+    task_list = tasks.json()
+
+    # Export data in the CSV format
+    data_row = ([user_id, username, task.get('completed'), task.get('title')]
+                for task in task_list]
+
+    # Insert csv data row
+    with open('{}.csv'.format(user_id), 'w') as m:
+              m.writerows(data_row)
