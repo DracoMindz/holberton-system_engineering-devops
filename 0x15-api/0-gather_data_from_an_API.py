@@ -8,11 +8,13 @@ import sys
 if __name__ == '__main__':
 
     """ employee information requests """
-    employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(sys.argv[1])).json()
+    employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'.
+                            format(sys.argv[1])).json()
     employee_name = employee.get('name')
 
     """ todo information requests """
-    tasks = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'.format(sys.argv[1])).json()
+    tasks = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
+                         .format(sys.argv[1])).json()
     tot_tasks = len(tasks)
     com_tasks = []
     for task in tasks:
@@ -22,6 +24,6 @@ if __name__ == '__main__':
 
     """ Print the employee task data """
     print('Employee {} is done with tasks ({}/{}):'.
-              format(employee_name, tcom_tasks, tot_tasks))
+          format(employee_name, tcom_tasks, tot_tasks))
     for task in com_tasks:
         print('\t {}'.format(task.get('title')))
