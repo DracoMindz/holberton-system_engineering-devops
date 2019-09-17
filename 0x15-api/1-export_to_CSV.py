@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Python script: uses REST API, for employee, return info about
-employee todo list progress
+Python script: export data in CSV format
 """
 
 
