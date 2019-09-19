@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import requests
-import sys
 
 
 def top_ten(subreddit):
@@ -14,6 +13,6 @@ def top_ten(subreddit):
                                format(subreddit), allow_redirects=False,
                                headers={'User-Agent': 'Betty'}).json()
         for m in request['data']['children']:
-            print(m['data']['titles'])
+            print(m['data']['title'])
     except BaseException:
         return ('None')
