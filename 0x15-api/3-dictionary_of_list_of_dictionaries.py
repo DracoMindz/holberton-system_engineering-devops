@@ -17,13 +17,13 @@ if __name__ == "__main__":
     list_of_tasks = []
     for user in employeeList:
         todoList = requests.get('{}/todos?userId={}'.
-                                format(url, user.get('id'))).json()
-        list_of_tasks += todoList
+                                format(url, user.get('id')))
+        list_of_tasks += todoList.json()
 
     # Export json formatted data in json file
     jsonDataDict = {user.get('id'): [{"task": task.get('title'),
-                                     "username": task.get('username'),
-                                     "completed": task.get('completed')}
+                                      "username": user.get('username'),
+                                      "completed": task.get('completed')}
                                      for task in list_of_tasks]
                     for user in employeeList}
 
