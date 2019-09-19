@@ -13,7 +13,7 @@ def top_ten(subreddit):
         request = requests.get('https://www.reddit.com/r/{}/hot.json?limit=10'.
                                format(subreddit), allow_redirects=False,
                                headers={'User-Agent': 'Betty'}).json()
-        for m in request['data']['titles']:
+        for m in request['data']['children']:
             print(m['data']['titles'])
     except KeyError:
         return ('None')
