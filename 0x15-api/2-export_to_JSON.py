@@ -14,20 +14,20 @@ if __name__ == "__main__":
 
     # Employee information requests
     employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'.
-                            format(sys.argv[1])).json()
+                            format(user_id)).json()
     username = employee.get('username')
 
     # Todo information requests
     tasks = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
-                         .format(sys.argv[1])).json()
+                         .format(user_id)).json()
     taskList = tasks
 
     # Export json formatted data in json file
     jsonDataDict = {user_id: [{"task": task.get('title'),
-                              "completed": task.get('completed'),
-                              "username": username}
+                               "completed": task.get('completed'),
+                               "username": username}
                               for task in taskList]}
 
     # Insert json data row
-    with open('{}.json'.format(sys.argv[1]), 'w') as mfile:
+    with open('{}.json'.format(user_id), 'w') as mfile:
         json.dump(jsonDataDict, mfile)
