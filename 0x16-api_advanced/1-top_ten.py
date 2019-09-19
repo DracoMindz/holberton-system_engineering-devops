@@ -15,5 +15,5 @@ def top_ten(subreddit):
                                headers={'User-Agent': 'Betty'}).json()
         for m in request['data']['children']:
             print(m['data']['titles'])
-    except KeyError:
+    except BaseException:
         return ('None')
