@@ -24,7 +24,8 @@ if __name__ == "__main__":
     jsonDataDict = {user.get('id'): [{"task": task.get('title'),
                                       "username": user.get('username'),
                                       "completed": task.get('completed')}
-                                     for task in list_of_tasks]
+                                     for task in list_of_tasks
+                                     if user.get('id') == task.get('userId')]
                     for user in employeeList}
 
     # Insert json data row
