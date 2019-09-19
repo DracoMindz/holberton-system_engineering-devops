@@ -14,12 +14,12 @@ if __name__ == "__main__":
 
     # Employee information requests
     employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'.
-                            format(sys.argv[1])).json()
+                            format(user_id)).json()
     username = employee.get('username')
 
     # Todo information requests
     tasks = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
-                         .format(sys.argv[1])).json()
+                         .format(user_id)).json()
     taskList = tasks
 
     # Export data in the CSV format
