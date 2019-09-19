@@ -16,4 +16,4 @@ def top_ten(subreddit):
         for m in request['data']['children']:
             print(m['data']['title'])
     except BaseException:
-        print('None')
+        print(None)
