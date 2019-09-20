@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import requests
-import sys
 
 
 def recurse(subreddit, hot_list=[]):
