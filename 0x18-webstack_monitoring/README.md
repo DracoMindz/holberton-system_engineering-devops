@@ -14,7 +14,7 @@ What are error logs for a web server (such as Nginx)?
 
 ## Requirements
 
-#General
+# General
 
 Allowed editors: vi, vim, emacs
 All your files will be interpreted on Ubuntu 16.04 LTS
